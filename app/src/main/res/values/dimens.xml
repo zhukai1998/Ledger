@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-    <dimen name="ad_dimen">30dp</dimen>
+    <dimen name="skip_marginTop">60dp</dimen>
+    <dimen name="skip_marginRight">30dp</dimen>
+    <dimen name="Copyright_marginButton">30dp</dimen>
+
+
+    <dimen name="roundButton_width">120dp</dimen>
+    <dimen name="roundButton_height">40dp</dimen>
+    <dimen name="roundButton_radius">10dp</dimen>
+
+    <dimen name="index_loginButton_marginBottom">150dp</dimen>
+    <dimen name="index_noteText_marginBottom">100dp</dimen>
+    <dimen name="index_wechat_marginBottom">40dp</dimen>
+    <dimen name="login_fragment_marginTop">60dp</dimen>
+
+    <dimen name="phone_EditText_width">180dp</dimen>
+    <dimen name="send_Button_marginTop">32dp</dimen>
+    <dimen name="sms_marginTop">200dp</dimen>
+    <dimen name="sms_ll_width">360dp</dimen>
+
+    <dimen name="smsTurn_marginTop">120dp</dimen>
+    <dimen name="smsTurn_marginRight">30dp</dimen>
 </resources>

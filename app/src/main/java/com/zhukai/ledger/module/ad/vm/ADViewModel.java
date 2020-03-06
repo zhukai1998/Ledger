@@ -1,6 +1,7 @@
 package com.zhukai.ledger.module.ad.vm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 import androidx.databinding.ObservableField;
@@ -8,6 +9,7 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.ViewModel;
 
 import com.zhukai.ledger.R;
+import com.zhukai.ledger.module.index.ui.IndexActivity;
 
 import java.sql.Time;
 import java.util.Timer;
@@ -64,6 +66,13 @@ public class ADViewModel extends ViewModel
     {
         timer.cancel();
         // 跳转到下一页面
-        skipMessage.set("跳转 0s");
+        loginPage();
     }
+
+
+    private void loginPage()
+    {
+        mContext.startActivity(new Intent(mContext, IndexActivity.class));
+    }
+
 }

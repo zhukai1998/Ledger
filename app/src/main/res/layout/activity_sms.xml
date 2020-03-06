@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="vm"
+            type="com.zhukai.ledger.module.sign.vm.SMSViewModel"
+            >
+
+        </variable>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_bg"
+        >
+        <com.zhukai.ledger.module.component.StatusBarHeightView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_ecg_report"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_by_pwd"
+            android:layout_marginTop="@dimen/smsTurn_marginTop"
+            android:layout_marginRight="@dimen/smsTurn_marginRight"
+            android:id="@+id/way_tv"
+            android:onClick="@{vm::turnTo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <LinearLayout
+            android:layout_width="@dimen/sms_ll_width"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/radius_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="@dimen/sms_marginTop"
+            >
+            <LinearLayout
+                android:id="@+id/sms_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:background="@drawable/radius_sms"
+                >
+                <!--自定义控件， 两个TextView包含进去，并针对于它做点击事件-->
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <EditText
+                    android:id="@+id/phone_et"
+                    android:layout_width="@dimen/phone_EditText_width"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_hint"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:minWidth="@dimen/phone_EditText_width"
+                    android:maxWidth="@dimen/phone_EditText_width"
+                    />
+
+            </LinearLayout>
+
+            <com.zhukai.ledger.module.component.RoundCornerButton
+                android:id="@+id/send_b"
+                android:text="@string/send_Button"
+                android:layout_width="@dimen/roundButton_width"
+                android:layout_height="@dimen/roundButton_height"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/send_Button_marginTop"
+                app:rcb_backgroundColor="#ABE0B7"
+                app:rcb_cornerRadius="@dimen/roundButton_radius"
+                android:onClick="@{vm::sendCode}"
+                />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

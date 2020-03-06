@@ -4,16 +4,21 @@
 
     <application
         android:name=".App"
-        android:resizeableActivity="true"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".module.sign.ui.PWDActivity"></activity>
+        <activity android:name=".module.index.ui.IndexActivity" />
+        <activity android:name=".module.sign.ui.SMSActivity" />
+
         <meta-data
             android:name="notch.config"
             android:value="portrait|landscape" />
+
         <activity android:name=".module.ad.ui.ADActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

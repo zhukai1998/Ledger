@@ -5,17 +5,15 @@
     >
     <data>
         <variable
-            name="ad"
-            type="com.zhukai.ledger.module.ad.vm.ADViewModel"
+            name="vm"
+            type="com.zhukai.ledger.module.index.vm.IndexViewModel"
             >
 
         </variable>
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".module.ad.ui.ADActivity"
         >
         <com.zhukai.ledger.module.component.StatusBarHeightView
             android:layout_height="wrap_content"
@@ -34,27 +32,37 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
-        <TextView
-            android:id="@+id/copyright"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Copyright"
+        <com.zhukai.ledger.module.component.RoundCornerButton
+            android:layout_height="@dimen/roundButton_height"
+            android:layout_width="@dimen/roundButton_width"
+            android:id="@+id/login"
+            android:gravity="center"
+            android:onClick="@{vm::login}"
+            android:text="@string/index_loginButton"
+            app:rcb_backgroundColor="@color/index_loginButton"
+            app:rcb_cornerRadius="@dimen/roundButton_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="@dimen/Copyright_marginButton"
+            android:layout_marginBottom="@dimen/index_loginButton_marginBottom"
             />
-
         <TextView
-            android:id="@+id/skip"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{ad.skipMessage}"
-            android:onClick="@{ad::skip}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="@dimen/skip_marginRight"
-            android:layout_marginTop="@dimen/skip_marginTop"
+            android:text = "@string/index_noteText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/index_noteText_marginBottom"
             />
+        <ImageView
+            android:id="@+id/wechat"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:src="@drawable/wechat"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/index_wechat_marginBottom"
+            />
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

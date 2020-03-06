@@ -6,4 +6,9 @@
 
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
+
+    <color name="index_loginButton">#ABE0B7</color>
+
+    <color name="login_bg">#E0ECDE</color>
+    <color name="sms_bg">#C8EAD1</color>
 </resources>
