@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StatusBarHeightView">
+        <attr name="use_type" format="integer">
+            <enum name="use_height" value="0" />
+            <enum name="use_padding_top" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <attr name="app_primary_color" format="color"/> <!-- topbar -->
+    <attr name="app_content_bg_color" format="color"/> <!-- content-->
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CodeEditText">
+        <attr name="strokeLength" format="integer" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeHeight" format="dimension" />
+        <attr name="strokePadding" format="dimension" />
+        <attr name="strokeBackground" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="RaeSkinImageView">
+        <!--夜间模式颜色-->
+        <attr name="nightColor" format="color|reference" />
+    </declare-styleable>
+    <declare-styleable name="DesignTabLayout">
+        <attr name="tabIndicatorWidth" format="dimension" />
+    </declare-styleable>
+</resources>

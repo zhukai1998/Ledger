@@ -25,7 +25,7 @@ public class ADViewModel extends ViewModel
         mContext = context;
         final int second = Integer.parseInt(mContext.getString(R.string.skip_second));
         skipMessage = new ObservableField<>(mContext.getString(R.string.skip_) +
-                second + mContext.getString(R.string.skip_unit));
+                " " + second + mContext.getString(R.string.skip_unit));
         skipMessageVisibility = new ObservableInt(View.VISIBLE);
 
         for(int i = 1; i <= second; i ++)
@@ -35,7 +35,7 @@ public class ADViewModel extends ViewModel
                 @Override
                 public void run() {
                     skipMessage.set(mContext.getString(R.string.skip_) +
-                            (second - finalI) + mContext.getString(R.string.skip_unit));
+                            " " + (second - finalI) + mContext.getString(R.string.skip_unit));
                     skipMessageVisibility.set(View.VISIBLE);
                 }
             }, Integer.parseInt(i + mContext.getString(R.string.skip_million)));
