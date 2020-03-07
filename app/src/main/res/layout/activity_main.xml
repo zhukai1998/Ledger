@@ -5,18 +5,20 @@
     android:id="@+id/dl_main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
 
+    >
+    <com.zhukai.ledger.module.component.StatusBarHeightView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/accent"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:fitsSystemWindows="true"
         >
-        <com.zhukai.ledger.module.component.StatusBarHeightView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:background="@color/accent"
-            />
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/id_toolbar"
             android:layout_width="match_parent"
