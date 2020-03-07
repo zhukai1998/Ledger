@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.zhukai.ledger.R;
 import com.zhukai.ledger.module.index.ui.IndexActivity;
+import com.zhukai.ledger.module.main.ui.SplashActivity;
 
 import java.sql.Time;
 import java.util.Timer;
@@ -66,13 +67,13 @@ public class ADViewModel extends ViewModel
     {
         timer.cancel();
         // 跳转到下一页面
-        loginPage();
+        splashPage();
     }
 
 
-    private void loginPage()
+    private void splashPage()
     {
-        mContext.startActivity(new Intent(mContext, IndexActivity.class));
+        mContext.startActivity(new Intent(mContext, SplashActivity.class));
     }
 
 }

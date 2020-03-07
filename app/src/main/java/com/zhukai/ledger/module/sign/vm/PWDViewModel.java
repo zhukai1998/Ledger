@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
+import com.zhukai.ledger.module.main.ui.MainActivity;
 import com.zhukai.ledger.module.sign.ui.SMSActivity;
 
 public class PWDViewModel extends ViewModel
@@ -23,11 +24,16 @@ public class PWDViewModel extends ViewModel
 
     public void login(View view)
     {
-
+        mainPage();
     }
 
     private void smsPage()
     {
         mContext.startActivity(new Intent(mContext, SMSActivity.class));
+    }
+
+    private void mainPage()
+    {
+        mContext.startActivity(new Intent(mContext, MainActivity.class));
     }
 }

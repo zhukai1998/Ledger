@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhukai.ledger">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -11,7 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.sign.ui.PWDActivity"></activity>
+        <activity android:name=".module.main.ui.ActivityAbout"></activity>
+        <activity android:name=".module.main.ui.MainActivity" />
+        <activity android:name=".module.main.ui.ActivityAddAccount" />
+        <activity android:name=".module.main.ui.ActivitySetting" />
+        <activity android:name=".module.main.ui.ActivityMaIncome" />
+        <activity android:name=".module.main.ui.ActivityMaLeibie" />
+        <activity android:name=".module.main.ui.ActivityMaGdkx" />
+        <activity android:name=".module.main.ui.ActivityAboutWeb" />
+        <activity android:name=".module.main.ui.SplashActivity" />
+        <activity android:name=".module.sign.ui.PWDActivity" />
         <activity android:name=".module.index.ui.IndexActivity" />
         <activity android:name=".module.sign.ui.SMSActivity" />
 
