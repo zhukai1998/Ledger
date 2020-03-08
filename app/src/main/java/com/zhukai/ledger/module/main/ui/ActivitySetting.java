@@ -1,9 +1,13 @@
 package com.zhukai.ledger.module.main.ui;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 
 
 import com.zhukai.ledger.R;
@@ -136,7 +141,45 @@ public class ActivitySetting extends BaseActivity implements View.OnClickListene
         }
 
     }
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    public static void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE);
+        }
+    }
+    public Boolean checkPermission() {
+        boolean isGranted = true;
+        if (android.os.Build.VERSION.SDK_INT >= 23) {
+            if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) !=PackageManager.PERMISSION_GRANTED) {
+                //如果没有写sd卡权限
+                isGranted = false;
+            }
+            if (this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) !=PackageManager.PERMISSION_GRANTED) {
+                isGranted = false;
+            }
+            Log.i("cbs","isGranted == "+isGranted);
+            if (!isGranted) {
+                this.requestPermissions(
+                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission
+                                .ACCESS_FINE_LOCATION,
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        102);
+            }
+        }
+        return isGranted;
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -163,6 +206,8 @@ public class ActivitySetting extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.set_rl6:
                 // 导出消费记录
+                // verifyStoragePermissions(ActivitySetting.this);
+                checkPermission();
                 String path = "";
                 MyDataBase dataBase = new MyDataBase(ActivitySetting.this);
                 dataBase.open();

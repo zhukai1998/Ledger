@@ -1,9 +1,13 @@
 package com.zhukai.ledger.module.index.vm;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.view.View;
 
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModel;
 
 import com.zhukai.ledger.module.sign.ui.SMSActivity;
@@ -11,10 +15,11 @@ import com.zhukai.ledger.module.sign.ui.SMSActivity;
 public class IndexViewModel extends ViewModel
 {
 
-    private Context mContext;
-    public IndexViewModel(Context context)
+    private Activity mActivity;
+    public IndexViewModel(Activity activity)
     {
-        mContext = context;
+        mActivity = activity;
+
     }
 
     public void login(View view)
@@ -24,6 +29,11 @@ public class IndexViewModel extends ViewModel
 
     private void loginPage()
     {
-        mContext.startActivity(new Intent(mContext, SMSActivity.class));
+
+        mActivity.startActivity(new Intent(mActivity, SMSActivity.class));
     }
+
+
+
+
 }

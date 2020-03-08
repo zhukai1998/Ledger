@@ -34,8 +34,8 @@ public class DatabaseOutput {
     public String writeExcel(String tableName) {
         WritableWorkbook wwb = null;
         String fileName;
-        String mdir = Environment.getExternalStorageDirectory().getPath()
-                + "/Account/";
+        System.out.println(Environment.getExternalStoragePublicDirectory(""));
+        String mdir = Environment.getExternalStoragePublicDirectory("") + "/Download/";
         File file = new File(mdir);
         if (!file.exists())
             file.mkdir();
