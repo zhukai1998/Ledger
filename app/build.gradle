@@ -1,12 +1,25 @@
 apply plugin: 'com.android.application'
+// 添加插件
+apply plugin: 'com.mob.sdk'
 
+// 在MobSDK的扩展中注册 SMSSDK 的相关信息
+MobSDK {
+    appKey "2e47b332dac40"
+    appSecret "f537f99b64e660ddadb555ece240ff79"
+    SMSSDK {
+        // 启用自带 GUI
+        gui true
+        // 自动提示验证码
+        autoSMS true
+    }
+}
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.zhukai.ledger"
-        minSdkVersion 29
+        minSdkVersion 25
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

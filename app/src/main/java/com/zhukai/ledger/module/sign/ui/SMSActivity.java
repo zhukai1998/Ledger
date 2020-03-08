@@ -10,7 +10,9 @@ import com.zhukai.ledger.databinding.ActivitySmsBinding;
 import com.zhukai.ledger.module.component.BaseActivity;
 import com.zhukai.ledger.module.sign.vm.SMSViewModel;
 
-
+/**
+ * 没用上，没用了
+ */
 public class SMSActivity extends BaseActivity {
 
     ActivitySmsBinding activitySmsBinding;

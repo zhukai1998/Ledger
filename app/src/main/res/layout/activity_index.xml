@@ -31,21 +31,44 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
-
-        <com.zhukai.ledger.module.component.RoundCornerButton
-            android:layout_height="@dimen/roundButton_height"
-            android:layout_width="@dimen/roundButton_width"
-            android:id="@+id/login"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:onClick="@{vm::login}"
-            android:text="@string/index_loginButton"
-            app:rcb_backgroundColor="@color/index_loginButton"
-            app:rcb_cornerRadius="@dimen/roundButton_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="@dimen/index_loginButton_marginBottom"
-            />
+            >
+            <com.zhukai.ledger.module.component.RoundCornerButton
+                android:layout_height="@dimen/roundButton_height"
+                android:layout_width="@dimen/roundButton_width"
+                android:id="@+id/sms"
+                android:gravity="center"
+                android:onClick="@{vm::sms}"
+                android:layout_marginRight="60dp"
+                android:text="@string/sign_by_smscode"
+                app:rcb_backgroundColor="@color/index_loginButton"
+                app:rcb_cornerRadius="@dimen/roundButton_radius"
+                />
+
+            <com.zhukai.ledger.module.component.RoundCornerButton
+                android:layout_height="@dimen/roundButton_height"
+                android:layout_width="@dimen/roundButton_width"
+                android:id="@+id/login"
+                android:gravity="center"
+                android:onClick="@{vm::login}"
+                android:text="@string/sign_by_pwd"
+                app:rcb_backgroundColor="@color/index_loginButton"
+                app:rcb_cornerRadius="@dimen/roundButton_radius"
+                />
+
+
+        </LinearLayout>
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
