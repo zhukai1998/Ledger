@@ -61,6 +61,7 @@ public class IndexViewModel extends ViewModel
                     String phone = (String) phoneMap.get("phone");
                     // TODO 利用国家代码和手机号码进行后续的操作
                     System.out.println("true");
+                    //
                     mainPage();
                 } else{
                     // TODO 处理错误的结果

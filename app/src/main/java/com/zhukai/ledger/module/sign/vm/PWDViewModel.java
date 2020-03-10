@@ -1,5 +1,6 @@
 package com.zhukai.ledger.module.sign.vm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -11,10 +12,10 @@ import com.zhukai.ledger.module.sign.ui.SMSActivity;
 
 public class PWDViewModel extends ViewModel
 {
-    private Context mContext;
-    public PWDViewModel(Context context)
+    private Activity mActivity;
+    public PWDViewModel(Activity context)
     {
-        mContext = context;
+        mActivity = context;
     }
 
     public void turnTo(View view)
@@ -29,11 +30,12 @@ public class PWDViewModel extends ViewModel
 
     private void smsPage()
     {
-        mContext.startActivity(new Intent(mContext, SMSActivity.class));
+        mActivity.startActivity(new Intent(mActivity, SMSActivity.class));
     }
 
     private void mainPage()
     {
-        mContext.startActivity(new Intent(mContext, MainActivity.class));
+        mActivity.startActivity(new Intent(mActivity, MainActivity.class));
+        mActivity.finish();
     }
 }

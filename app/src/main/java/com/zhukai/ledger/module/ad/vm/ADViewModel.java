@@ -1,5 +1,6 @@
 package com.zhukai.ledger.module.ad.vm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -21,14 +22,14 @@ public class ADViewModel extends ViewModel
     public ObservableField<String> skipMessage;
     public ObservableInt skipMessageVisibility;
     private Timer timer;
-    private Context mContext;
+    private Activity mActivity;
 
-    public ADViewModel(Context context)
+    public ADViewModel(Activity activity)
     {
-        mContext = context;
-        final int second = Integer.parseInt(mContext.getString(R.string.skip_second));
-        skipMessage = new ObservableField<>(mContext.getString(R.string.skip_) +
-                " " + second + mContext.getString(R.string.skip_unit));
+        mActivity = activity;
+        final int second = Integer.parseInt(mActivity.getString(R.string.skip_second));
+        skipMessage = new ObservableField<>(mActivity.getString(R.string.skip_) +
+                " " + second + mActivity.getString(R.string.skip_unit));
         skipMessageVisibility = new ObservableInt(View.VISIBLE);
 
         for(int i = 1; i <= second; i ++)
@@ -37,13 +38,13 @@ public class ADViewModel extends ViewModel
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    skipMessage.set(mContext.getString(R.string.skip_) +
-                            " " + (second - finalI) + mContext.getString(R.string.skip_unit));
+                    skipMessage.set(mActivity.getString(R.string.skip_) +
+                            " " + (second - finalI) + mActivity.getString(R.string.skip_unit));
                     skipMessageVisibility.set(View.VISIBLE);
                 }
-            }, Integer.parseInt(i + mContext.getString(R.string.skip_million)));
+            }, Integer.parseInt(i + mActivity.getString(R.string.skip_million)));
         }
-        schedule(Integer.parseInt(second + mContext.getString(R.string.skip_million)));
+        schedule(Integer.parseInt(second + mActivity.getString(R.string.skip_million)));
     }
 
     private void schedule(long delay_time)
@@ -73,7 +74,8 @@ public class ADViewModel extends ViewModel
 
     private void splashPage()
     {
-        mContext.startActivity(new Intent(mContext, SplashActivity.class));
+        mActivity.startActivity(new Intent(mActivity, SplashActivity.class));
+        mActivity.finish();
     }
 
 }
